@@ -1,0 +1,84 @@
+DRAFT SPECIFICATION – ODOO 18
+GENERAL LEDGER & ACCOUNTING REPORTING
+English Version
+Current environment: Odoo 18 Enterprise – Odoo Online
+1. Objective
+We request an assessment and development proposal to improve the General Ledger and related accounting report exports. The goal is to obtain clearer period-based, analytic and multi-currency information without changing the accounting data itself.
+2. Required functionality
+Analytic information: Add an “Analytic” column at journal-item level in the General Ledger, showing the corresponding analytic account/distribution for each entry. The same information should be available in the relevant PDF and XLSX exports.
+Currency presentation: When the relevant journal and/or account is configured in USD, the General Ledger must display the Debit and Credit columns in USD, rather than only in the company currency (MXN), as occurs in the current standard report. The balance and period totals for those USD journals/accounts should likewise be available in USD. For MXN journals/accounts, Debit and Credit should remain in MXN. If both company currency and journal/account/transaction currency are displayed, they must be shown in separate, clearly labeled columns.
+Period-specific totals: When a date range is selected, totals must represent only the activity inside that selected period. Prior-period balances may appear separately as Opening Balance, but they must not be included in the period Debit, Credit or Net Movement totals.
+Opening and ending balances: The report should clearly distinguish: Opening Balance, Period Debit, Period Credit, Net Movement for the selected period, and Ending Balance.
+Standard usability: Keep the standard General Ledger filters and navigation whenever technically possible, including date range, accounts, journals and companies.
+3. Example of expected period logic
+Concept
+Debit
+Credit
+Balance / Movement
+Opening Balance
+—
+—
+100,000
+Selected-period activity
+40,000
+15,000
+—
+PERIOD TOTAL
+40,000
+15,000
++25,000
+Ending Balance
+—
+—
+125,000
+
+4. Alternative if the standard General Ledger cannot be modified
+If these requirements cannot be implemented directly in the standard General Ledger or in the standard journal-item/accounting report exports, please assess whether Odoo can provide or develop an external custom reporting template or reporting solution using Odoo as the source of accounting data. The alternative solution should reproduce the same requested functionality: analytic information, Debit and Credit in USD for USD journals/accounts and in MXN for MXN journals/accounts, period-only totals, opening/ending balances, filters, and export to PDF and XLSX where possible.
+5. Data integrity and scope
+This is a reporting requirement only. The solution must not modify posted journal entries, historical balances, reconciliations, exchange rates or original accounting records.
+Please confirm whether the preferred solution is compatible with Odoo Online and whether it requires any change of hosting or subscription.
+6. Information requested from Odoo
+Please provide: technical feasibility, recommended approach (direct modification or external reporting alternative), Odoo Online compatibility, estimated development effort, cost, implementation time, maintenance implications and impact of future Odoo upgrades.
+
+
+ESPECIFICACIÓN PRELIMINAR – ODOO 18
+LIBRO MAYOR Y REPORTES CONTABLES
+Versión en Español
+Entorno actual: Odoo 18 Enterprise – Odoo Online
+1. Objetivo
+Solicitamos una evaluación y propuesta de desarrollo para mejorar el Libro Mayor y las exportaciones de reportes contables relacionadas. El objetivo es obtener información más clara por período, analítica y multimoneda sin modificar la información contable original.
+2. Funcionalidad requerida
+Información analítica: Agregar una columna “Analítica” a nivel de cada apunte contable en el Libro Mayor, mostrando la cuenta/distribución analítica correspondiente. La misma información deberá estar disponible en las exportaciones relevantes a PDF y XLSX.
+Presentación por moneda: Cuando el diario y/o la cuenta correspondiente esté configurado en USD, el Libro Mayor deberá mostrar las columnas de Débito y Crédito en USD, en lugar de mostrarlas únicamente en la moneda de la compañía (MXN), como ocurre actualmente en el reporte estándar. El saldo y los totales del período de esos diarios/cuentas en USD también deberán estar disponibles en USD. Para diarios/cuentas en MXN, el Débito y Crédito deberán mantenerse en MXN. Si se muestran simultáneamente la moneda de la compañía y la moneda del diario/cuenta/transacción, deberán presentarse en columnas separadas y claramente identificadas.
+Totales exclusivos del período: Cuando se seleccione un rango de fechas, los totales deberán corresponder únicamente a la actividad incluida dentro de ese período. Los saldos anteriores podrán mostrarse por separado como Saldo Inicial, pero no deberán formar parte de los totales de Débito, Crédito o Movimiento Neto del período.
+Saldos inicial y final: El reporte deberá diferenciar claramente: Saldo Inicial, Débito del Período, Crédito del Período, Movimiento Neto del período seleccionado y Saldo Final.
+Uso estándar: Conservar, cuando sea técnicamente posible, los filtros y navegación estándar del Libro Mayor, incluyendo rango de fechas, cuentas, diarios y compañías.
+3. Ejemplo de la lógica esperada para el período
+Concepto
+Débito
+Crédito
+Saldo / Movimiento
+Saldo inicial
+—
+—
+100,000
+Actividad del período
+40,000
+15,000
+—
+TOTAL DEL PERÍODO
+40,000
+15,000
++25,000
+Saldo final
+—
+—
+125,000
+
+4. Alternativa si no es posible modificar directamente el Libro Mayor
+Si estos requerimientos no pueden implementarse directamente en el Libro Mayor estándar o en las exportaciones estándar de apuntes/reportes contables, solicitamos evaluar si Odoo puede proporcionar o desarrollar una plantilla externa de reportes o solución de reporting personalizada utilizando Odoo como fuente de los datos contables. La alternativa deberá reproducir la misma funcionalidad solicitada: información analítica, Débito y Crédito en USD para diarios/cuentas en USD y en MXN para diarios/cuentas en MXN, totales exclusivos del período, saldos inicial/final, filtros y exportación a PDF y XLSX cuando sea posible.
+5. Integridad de datos y alcance
+Este requerimiento es únicamente de reportes. La solución no deberá modificar asientos publicados, saldos históricos, conciliaciones, tipos de cambio ni registros contables originales.
+Favor de confirmar si la solución recomendada es compatible con Odoo Online y si requiere algún cambio de alojamiento o suscripción.
+6. Información solicitada a Odoo
+Favor de indicar: viabilidad técnica, enfoque recomendado (modificación directa o alternativa externa de reporting), compatibilidad con Odoo Online, esfuerzo estimado de desarrollo, costo, tiempo de implementación, mantenimiento e impacto de futuras actualizaciones de Odoo.
