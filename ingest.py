@@ -33,6 +33,7 @@ def create_vector_store(chunks):
         embedding=embeddings,
         persist_directory=CHROMA_PATH,
     )
+    # this will store the data in chroma_db/ file path
     return vector_store
 
 if __name__ == "__main__":
