@@ -33,3 +33,10 @@ if __name__ == "__main__":
         print(f"Result {index}:")
         print(doc.page_content)
         print("-" * 50)
+
+
+# This whole project contains huggingface that has differnt embedding model, chromadb convert into that given specific embeddings.
+# lanchain huggingface has many helper methods for differnt work.
+# chroma_db stores the embedding.
+# and withoul ollama we have just fetched the relevent chunks from the chroma_db. so when user will ask something it will give relevant chunks.
+# and how we have to connect the ollama which can connect ai model so that insted of chunks it will return an answer.
