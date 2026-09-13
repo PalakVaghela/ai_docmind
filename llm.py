@@ -15,31 +15,52 @@ def call_llm(prompt: str):
     return response.content
 
 def answer_question(query: str):
-    documents = retrive_document(query)
+    results = retrive_document(query)
+
+    print("\n" + "=" * 60)
+    print("RETRIEVED DOCUMENTS")
+    print("=" * 60)
+
+    for index, (document, score) in enumerate(results, start=1):
+        print(f"\nResult {index}")
+        print(f"Score: {score}")
+        print(document.page_content)
+
     context = "\n\n".join(
-        document.page_content for document in documents
+        document.page_content
+        for document, score in results
     )
+
+    print("\n" + "=" * 60)
+    print("FINAL CONTEXT SENT TO LLM")
+    print("=" * 60)
+    print(context)
+
     prompt = f"""
-    You are a helpful document assistant.
+You are a helpful document assistant.
 
-    Answer the user's question using the provided context.
+Answer the user's question using the provided context.
 
-    If the answer cannot be found in the context, say:
-    "I couldn't find the answer in the provided documents."
+Rules:
+- Use only the information present in the context.
+- Do not make up information.
+- If the answer cannot be found in the context, say:
+"I couldn't find the answer in the provided documents."
 
-    Context:
-    {context}
+Context:
+{context}
 
-    Question:
-    {query}
+Question:
+{query}
 
-    Answer:
-    """
+Answer:
+"""
+
     return call_llm(prompt)
 
 if __name__ == "__main__":
-    # prompt = "In which column in gernal ledger we have to add?"
-    prompt = "Who is best friend of doraemon in japanees cartoon doraemon?"
+    prompt = "In which column in gernal ledger we have to add?"
+    # prompt = "Who is best friend of doraemon in japanees cartoon doraemon?"
     response = call_llm(prompt)
     print("\nOllama response=========================================")
     print(response)

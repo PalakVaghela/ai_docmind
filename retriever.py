@@ -20,18 +20,23 @@ def get_vector_store():
 # here k=3 is used to tell that this no. of relevent chunk should it show
 def retrive_document(query):
     vector_store = get_vector_store()
-    results = vector_store.similarity_search(
+    results = vector_store.similarity_search_with_score(
         query,
         k=3
     )
     return results
 
 if __name__ == "__main__":
-    query = "In which column in gernal ledger we have to make a change?"
+    query = "which column in gernal ledger we have to add?"
     results = retrive_document(query)
-    for index,doc in enumerate(results, start=1):
-        print(f"Result {index}:")
-        print(doc.page_content)
+    # for index,doc in enumerate(results, start=1):
+    #     print(f"Result {index}:")
+    #     print(doc.page_content)
+    #     print("-" * 50)
+    for index, (document, score) in enumerate(results, start=1):
+        print(f"Result {index}")
+        print(f"Score: {score}")
+        print(document.page_content)
         print("-" * 50)
 
 
